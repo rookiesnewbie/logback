@@ -11,7 +11,15 @@ public class App
     static ch.qos.logback.classic.Logger logger =
             (ch.qos.logback.classic.Logger) LoggerFactory.getLogger("com.aa");
     public static void main(String[] args) {
-        logger.info( "Hello World!" );
+
+        while (true){
+            logger.info( "Hello World!" );
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
     }
 }
