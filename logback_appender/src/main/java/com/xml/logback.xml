@@ -26,7 +26,7 @@
         </encoder>
 
         <!--设置滚动策略：1、基于时间  2、基于时间和大小-->
-        <!--基于时间-->
+        <!--基于时间和大小-->
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--归档文件，这里是每秒生成一个归档文件，即每天生成一个日志文件 默认在项目根目录下生成-->
 <!--            <fileNamePattern>log_%d{yyyy-MM-dd HH-mm-ss}.log</fileNamePattern>-->

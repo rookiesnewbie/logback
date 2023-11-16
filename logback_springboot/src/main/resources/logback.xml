@@ -11,14 +11,12 @@
         </encoder>
     </appender>
 
-
-
     <!--创建附加器，将日志输出到文件（多个）-->
     <appender name="MoreFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
 
         <!--输出的文件名，可以输出到指定的盘符如：d:/log/mylog.log-->
         <file>d:/log/mylog.log</file>
-<!--        <file>mylog.log</file>-->
+        <!--        <file>mylog.log</file>-->
 
         <encoder>
             <!--设置控制台打印的内容 -50代表空格在日期后面，正数在前面-->
@@ -26,21 +24,21 @@
         </encoder>
 
         <!--设置滚动策略：1、基于时间  2、基于时间和大小-->
-        <!--基于时间-->
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <!--基于时间和大小-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!--归档文件，这里是每秒生成一个归档文件，即每天生成一个日志文件 默认在项目根目录下生成-->
-<!--            <fileNamePattern>log_%d{yyyy-MM-dd HH-mm-ss}.log</fileNamePattern>-->
+            <!--            <fileNamePattern>log_%d{yyyy-MM-dd HH-mm-ss}.log</fileNamePattern>-->
 
             <!--在d盘的var目录下生成归档日志文件，若目录不存在，则自带创建-->
-            <fileNamePattern>d:/log/log_%d{yyyy-MM-dd HH-mm-ss}.log</fileNamePattern>
+            <fileNamePattern>d:/log/log_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
 
             <!--设置归档文件的最大个数，若超过这个数，就删除之前生成的旧日志文件,若不设置，则生成多个-->
             <maxHistory>5</maxHistory>
 
             <!--设置所有归档日志文件的大小，若超过这个值，就会删除之前生成的旧日志文件-->
             <totalSizeCap>1GB</totalSizeCap>
-
-
+            <!--设置每个归档文件的日志大小,若归档文件的大小大于该值，则按序号0依此类推生成多个归档文件-->
+            <maxFileSize>1KB</maxFileSize>
         </rollingPolicy>
 
 
@@ -49,14 +47,14 @@
         <append>true</append>
     </appender>
 
-    <!--配置根记录器的日志级别，默认为debug-->
-    <root level="INFO"></root>
 
-    <!--设置记录器的name属性,这里设置为com.aa,若没有则创建它-->
-    <logger name="com.aa" level="debug">
+
+    <!--配置根记录器的日志级别，默认为debug-->
+    <root level="INFO">
         <!--将附加器添加到记录器中-->
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="MoreFile"/>
-    </logger>
+    </root>
+
 
 </configuration>
