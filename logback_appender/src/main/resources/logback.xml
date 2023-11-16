@@ -1,0 +1,25 @@
+<configuration xmlns="http://ch.qos.logback/xml/ns/logback"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback
+               https://raw.githubusercontent.com/enricopulatzo/logback-XSD/master/src/main/xsd/logback.xsd">
+   <!--创建附加器，将日志输出到控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+            <!--设置控制台打印的内容 -50代表空格在日期后面，正数在前面-->
+            <pattern>%-50date{yyyy-MM-dd HH:mm:ss.SSS} %level %thread %class %msg %line%n</pattern>
+        </encoder>
+    </appender>
+
+
+
+    <!--配置根记录器的日志级别，默认为debug-->
+    <root level="INFO"></root>
+
+    <!--设置记录器的name属性,这里设置为com.aa,若没有则创建它-->
+    <logger name="com.aa" level="debug">
+        <!--将附加器添加到记录器中-->
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+</configuration>
