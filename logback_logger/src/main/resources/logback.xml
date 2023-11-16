@@ -1,0 +1,11 @@
+<configuration xmlns="http://ch.qos.logback/xml/ns/logback"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ch.qos.logback/xml/ns/logback
+               https://raw.githubusercontent.com/enricopulatzo/logback-XSD/master/src/main/xsd/logback.xsd">
+    <!--配置根记录器的日志级别，默认为debug-->
+    <root level="INFO"></root>
+
+    <!--设置记录器的name属性,这里设置为com.aa,若没有则创建它-->
+    <logger name="com.aa" level="debug"></logger>
+
+</configuration>
