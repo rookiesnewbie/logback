@@ -11,7 +11,21 @@
         </encoder>
     </appender>
 
+    <!--创建附加器，将日志输出到文件-->
+    <appender name="File" class="ch.qos.logback.core.FileAppender">
 
+        <encoder>
+            <!--设置控制台打印的内容 -50代表空格在日期后面，正数在前面-->
+            <pattern>%-50date{yyyy-MM-dd HH:mm:ss.SSS} %level %thread %class %msg %line%n</pattern>
+        </encoder>
+
+        <!--输出的文件名，可以输出到指定的盘符如：d:/log/mylog.log-->
+        <file>d:/log/mylog.log</file>
+<!--        <file>mylog.log</file>-->
+
+        <!--日志追加，true允许追加，false不允许，后面的会覆盖前面的-->
+        <append>true</append>
+    </appender>
 
     <!--配置根记录器的日志级别，默认为debug-->
     <root level="INFO"></root>
@@ -20,6 +34,7 @@
     <logger name="com.aa" level="debug">
         <!--将附加器添加到记录器中-->
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="File"/>
     </logger>
 
 </configuration>
