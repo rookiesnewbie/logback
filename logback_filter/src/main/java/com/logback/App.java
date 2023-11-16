@@ -4,7 +4,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Hello world!
- *
+ * TRACE < DEBUG < INFO < WARN < ERROR
  */
 public class App 
 {
@@ -13,6 +13,8 @@ public class App
     public static void main(String[] args) {
 
         logger.info( "Hello World!" );
+        logger.debug( "Hello World!" );
+        logger.warn( "Hello World!" );
 
 
     }

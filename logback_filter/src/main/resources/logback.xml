@@ -10,12 +10,21 @@
             <pattern>%-50date{yyyy-MM-dd HH:mm:ss.SSS} %level %thread %class %msg %line%n</pattern>
         </encoder>
 
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <!--日志级别：TRACE < DEBUG < INFO < WARN < ERROR-->
+            <!--如果打印的日志级别>=INFO则打印，否则不打印-->
+            <level>INFO</level>
+        </filter>
+
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
             <!--如果是info日志级别旧打印，否则不打印-->
             <level>INFO</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
         </filter>
+
+
+
     </appender>
 
 
