@@ -23,6 +23,11 @@
             <onMismatch>DENY</onMismatch>
         </filter>
 
+        <!--引用自定义过滤器-->
+        <filter class="com.logback.MyFilter">
+            <level>INFO</level>
+        </filter>
+
 
 
     </appender>
